@@ -32,10 +32,7 @@
 			
 		}
 		
-		if(!$result) {
-			
-		}
-		
+
 	}
 			
 ?>
@@ -73,7 +70,7 @@
 				<p class="lead">Please get in touch - I'll get back to you as soon as I can.</p>
 				<form method="post">
 					<div class="form-group">
-						<label for="name">Name</lable>
+						<label for="name">Name</label>
 						<input name="name" class="form-control" type="text" value="<?php echo $_POST['name']; ?>"/>
 					</div>
 					<div class="form-group">
