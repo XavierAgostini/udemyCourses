@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JS Section</title>
+    <meta charset="utf-8"/>
+    <meta http-equiv="content-type" content="text/html"; charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <style>
+        html, body {
+            height: 100%;
+        }
+        p {
+            font-family: arial, helvetica, verdana, sans-serif;
+            font-size: 16px;
+        }
+       #block {
+           height: 200px;
+           width:200px;
+           background-color: red;
+           display: none;
+           position: relative;
+       }
+
+    </style>
+</head>
+<body>
+    <p> Your Time: <span id="yourTime"></span></p>
+    <p> Average Time: <span id="aveTime"></span></p>
+    <div id="block"></div>
+
+<script>
+    var clickedTime, createdTime, reactionTime, aveTimes;
+    var times = [];
+    var randomTime = Math.random()*5000;
+
+    function getRandomColor() {
+        var letters = '0123456789ABCDEF'.split('');
+        var color = '#';
+        for (var i = 0; i < 6; i++ ) {
+            color += letters[Math.floor(Math.random() * 16)];
+        }
+        return color;
+    }
+    function randomShape() {
+        var value = Math.random();
+        if(value < 0.7){
+            return 'square';
+        }
+        else {
+            return 'circle';
+        }
+    }
+    function averageTime(timeArray){
+        var aveTime=0;
+        for(var i=0;i<timeArray.length;i++) {
+            aveTime+=timeArray[i]/(i+1);
+        }
+        return aveTime
+    }
+
+    console.log(randomShape());
+    function makeBox() {
+            setTimeout(function(){
+                var shape=randomShape();
+                if(shape == 'circle'){
+
+                    document.getElementById('block').style.borderRadius="50%";
+                    document.getElementById('block').style.display="block";
+
+                }
+                else{
+                    document.getElementById('block').style.backgroundColor=getRandomColor();
+                    document.getElementById('block').style.borderRadius="0%";
+
+                }
+                document.getElementById('block').style.backgroundColor=getRandomColor();
+                document.getElementById('block').style.top=Math.floor(Math.random()*300).toString()+"px";
+                document.getElementById('block').style.left=Math.floor(Math.random()*600).toString()+"px";
+                document.getElementById('block').style.display="block";
+                createdTime = Date.now();
+
+            },randomTime);
+
+    }
+    makeBox();
+
+
+
+    document.getElementById('block').onclick= function(){
+        clickedTime=Date.now();
+        this.style.display="none";
+        reactionTime =(clickedTime - createdTime)/1000;
+        times.push(reactionTime);
+
+        document.getElementById('yourTime').innerHTML=reactionTime;
+        document.getElementById('aveTime').innerHTML=averageTime(times);
+        makeBox();
+    };
+
+</script>
+</body>
+</html>

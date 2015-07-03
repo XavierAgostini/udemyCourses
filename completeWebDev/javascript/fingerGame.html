@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JS Section</title>
+    <meta charset="utf-8"/>
+    <meta http-equiv="content-type" content="text/html"; charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <style>
+        #circle {
+            background-color: red;
+            border-radius: 50%;
+            height: 200px;
+            width: 200px;
+        }
+    </style>
+</head>
+<body>
+    <h3>How many fingers????</h3>
+    <input type="text" id="guess"/>
+    <button id="myButton">Submit</button>
+    <p id="response"></p>
+
+    <script>
+        document.getElementById('myButton').onclick= function(){
+            var guess = document.getElementById('guess').value;
+            var answer =Math.floor(Math.random()*5+1);
+            if(guess==answer){
+                document.getElementById('response').innerHTML="You guessed right";
+            }
+            else {
+                document.getElementById('response').innerHTML="You guessed wrong; the right answer is: "+answer.toString();
+            }
+        }
+    </script>
+</body>
+</html>
