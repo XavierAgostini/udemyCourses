@@ -78,7 +78,7 @@
 						<input name="email" class="form-control" type="text" value="<?php echo $_POST['email']; ?>"/>
 					</div>			
 					<div class="form-group">
-						<label for name="message">Message</label>
+						<label for="message">Message</label>
 						<textarea name="message" class="form-control" placeholder="Please leave your message below"><?php echo $_POST['message']; ?> </textarea>
 					</div>				
 					<input type="submit" class="btn btn-success btn-lg" name="submit" value="Submit"/>
